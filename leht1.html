@@ -19,8 +19,14 @@
     }
 
     h1 {
-      margin: 0;
+      margin: 0 0 15px 0;
       font-size: 42px;
+    }
+
+    .nastaja-img {
+      width: 180px;
+      max-width: 80%;
+      border: 3px solid white;
     }
 
     main {
@@ -80,6 +86,11 @@
 
 <header>
   <h1>🔮 NÕID NASTAJA 🔮</h1>
+  <img
+    class="nastaja-img"
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSITKGN8yjAlygtvQDVmuUsyebNqVrrHN03bzozHxyB8LvBFcDWDdGwzLzH&s=10"
+    alt="Nõid Nastaja"
+  >
 </header>
 
 <main>
@@ -120,15 +131,11 @@
   ];
 
   const good = [
-    "Sinu tulevik on hea. Sind ootab peagi üks väga meeldiv üllatus.",
-    "Tähed näitavad head tulevikku. Üks sinu soov võib varsti täide minna.",
-    "Sinu ees on hea aeg. Peagi juhtub midagi, mis teeb sind väga rõõmsaks."
+    "Sinu tulevik on hea. Aga võid ikka tulla vastuvõtule."
   ];
 
   const bad = [
-    "Sinu tulevikus on näha raskusi. Ole lähiajal oma otsustega ettevaatlik.",
-    "Tähed hoiatavad sind. Midagi ei pruugi minna päris nii, nagu sa loodad.",
-    "Tulevik ei näe praegu kõige parem välja. Hoia silmad lahti ja ära usalda kõike, mida sulle räägitakse."
+    "Sinu tulevikus on näha raskusi. TULE KOHE VASTUVÕTULE!",
   ];
 
   function tellFortune() {
