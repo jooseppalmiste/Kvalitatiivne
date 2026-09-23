@@ -1,31 +1,157 @@
-<html>
-  <head>
-    <title>Kvalitatiivne digihumanitaaria</title>
-  </head>
-  <body>
-    <h1>Kvalitatiivne digihumanitaaria - ülevaade</h1>
-    <h2>Kursuse teemade tutvustus</h2>
-    <ul>
-      <li>Pildi andmete uuring</li>
-      <li>Video andmete uuring</li>
-      <li>Veebilehe loomine</li>
-    </ul>
-	 <a href="https:tlu.ee/">Tallinna Ülikooli</a> kursus. <br />
-	<a href="leht1.html">Lihtsam leht</a>
-	  <table>
-		  <tr>
-			  <td>kuupäev</td>
-			  <td>teema</td> <tr>
-		  </tr>
-		  <tr>
-			  <td>2. september</td>
-			  <td>pilt</td>
-		  </tr>
-		  <tr>
-			  <td>9. september</td>
-			  <td>video</td>  
-		</tr>
-	  </table>
-	  <img src="https://miro.medium.com/v2/resize:fit:1400/1*vmoxKw1GpjnVeBm5fTTQgg.jpeg" />
-   </body>
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nõid Nastaja</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #2b173d;
+      color: white;
+      margin: 0;
+      text-align: center;
+    }
+
+    header {
+      background: #5b2c83;
+      padding: 25px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 42px;
+    }
+
+    main {
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .box {
+      background: #3a2050;
+      padding: 20px;
+      margin-bottom: 25px;
+      border: 2px solid white;
+    }
+
+    .prices {
+      text-align: left;
+      display: inline-block;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 80%;
+      max-width: 300px;
+    }
+
+    button {
+      display: block;
+      margin: 15px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #d7a8ff;
+      border: 2px solid white;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .good {
+      color: #9cff9c;
+    }
+
+    .bad {
+      color: #ff9c9c;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🔮 NÕID NASTAJA 🔮</h1>
+</header>
+
+<main>
+
+  <div class="box">
+    <h2>Hinnakiri</h2>
+
+    <div class="prices">
+      Kiirennustus – 5 €<br>
+      Kaardipanek – 15 €<br>
+      Tuleviku ennustus – 30 €
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Tuleviku ennustaja</h2>
+
+    <p>Vali kuupäev:</p>
+
+    <input type="date" id="dateInput">
+
+    <button onclick="tellFortune()">ENNUSTA</button>
+
+    <div id="result"></div>
+  </div>
+
+</main>
+
+<script>
+  const days = [
+    "pühapäev",
+    "esmaspäev",
+    "teisipäev",
+    "kolmapäev",
+    "neljapäev",
+    "reede",
+    "laupäev"
+  ];
+
+  const good = [
+    "Sinu tulevik on hea. Sind ootab peagi üks väga meeldiv üllatus.",
+    "Tähed näitavad head tulevikku. Üks sinu soov võib varsti täide minna.",
+    "Sinu ees on hea aeg. Peagi juhtub midagi, mis teeb sind väga rõõmsaks."
+  ];
+
+  const bad = [
+    "Sinu tulevikus on näha raskusi. Ole lähiajal oma otsustega ettevaatlik.",
+    "Tähed hoiatavad sind. Midagi ei pruugi minna päris nii, nagu sa loodad.",
+    "Tulevik ei näe praegu kõige parem välja. Hoia silmad lahti ja ära usalda kõike, mida sulle räägitakse."
+  ];
+
+  function tellFortune() {
+    const input = document.getElementById("dateInput").value;
+    const result = document.getElementById("result");
+
+    if (!input) {
+      result.className = "";
+      result.innerHTML = "Vali kõigepealt kuupäev!";
+      return;
+    }
+
+    const date = new Date(input + "T12:00:00");
+    const weekday = days[date.getDay()];
+
+    const isGood = Math.random() < 0.5;
+    const list = isGood ? good : bad;
+    const fortune = list[Math.floor(Math.random() * list.length)];
+
+    result.className = isGood ? "good" : "bad";
+    result.innerHTML = "See kuupäev on " + weekday + ".<br><br>" + fortune;
+  }
+</script>
+
+</body>
 </html>
